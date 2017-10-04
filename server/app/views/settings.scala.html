@@ -1,0 +1,25 @@
+@(user: models.User, setting: shared.Setting)(implicit request: RequestHeader, messages: Messages)
+
+@main(Messages("settings"),Some(user)) {
+    	
+	@helper.form(action = routes.ApplicationController.submitsettings()) {			
+	
+		@helper.CSRF.formField            
+		
+		<div class="formdiv">
+		<table>
+		
+			@field("combo","piecetype",Messages("piece.type"),setting.piecetype.getOrElse("alpha"),Map("alpha"->"Alpha","merida"->"Merida"))
+		
+			@field("text","note",Messages("note"),default=setting.note.getOrElse(""))
+			
+			@field("hr")		
+			
+			@field("submit",title=Messages("submit.changes"))
+		
+		</table>
+		</div>
+		
+	}
+				
+}

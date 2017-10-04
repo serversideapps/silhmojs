@@ -1,0 +1,13 @@
+*.bat
+*.txt
+!/server/app/views/emails/*.txt
+!/utils/s.bat
+!/utils/r.bat
+/chess.scala.html
+
+logs
+project/project
+target/
+
+shared/.js
+shared/.jvm

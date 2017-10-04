@@ -1,0 +1,25 @@
+@(form: myform.MyAuthorizeAdminForm)(implicit request: RequestHeader, messages: Messages)
+
+@main("Authorize admin") {
+    
+        @titlefield("Authorize admin")
+		
+        @helper.form(action = routes.AuthorizeAdminController.submit, 'autocomplete -> "off") {
+		
+            @helper.CSRF.formField
+            
+			<div class="formdiv">
+			<table>
+			
+				@field("password","password","Password",error=form.errors("password"))
+							
+				@field("hr")		
+				
+				@field("submit",title="Submit")	
+			
+			</table>		
+			</div>
+            
+        }
+    
+}

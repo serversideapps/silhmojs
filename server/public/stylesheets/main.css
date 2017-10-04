@@ -1,0 +1,345 @@
+body {
+	background-color: #e7e7e7;
+}
+
+b {
+	font-weight:bold;
+}
+
+.tablesheader {
+	font-size:11px;
+}
+
+.tablevariant {
+	background-color: #3f3f3f;
+	color: #00ff00;
+	font-weight: bold;
+	text-align:center;
+	padding: 4px;
+}
+
+.tabletimecontrol {
+	background-color: #ffcfaf;
+	color: #0000ff;
+	font-weight: bold;
+	text-align:center;
+	padding: 2px;
+}
+
+.tableplayer {
+	font-size:11px;
+	background-color: #ffffaf;
+	padding:2px;
+}
+
+.tableTerminated {
+	background-color: #ffafaf;
+}
+
+.tableOpen {
+	background-color: #afffaf;
+}
+
+.tableInprogress {
+	background-color: #afafff;
+}
+
+.tablestatus {
+	font-size:11px;
+	padding:2px;
+}
+
+.refreshtables {
+	padding:5px;
+	margin:3px;
+	background-color: #ffffe7;
+	width:150px;
+	text-align:center;
+	color: #0000ff;
+}
+
+.loadtable {
+	padding:3px;
+	margin:3px;
+	background-color: #ffffe7;
+	color: #0000ff;
+}
+
+.provider {
+    display: inline-block;
+    width: 64px;
+    height: 64px;
+    border-radius: 4px;
+    outline: none;
+}
+.facebook { background: #3B5998; }
+.google { background: #D14836; }
+.twitter { background: #00ACED; }
+.yahoo { background: #731A8B; }
+.xing { background: #006567; }
+.vk { background: #567ca4; }
+
+.fieldcomment {
+	color: #ff0000;
+	font-size: 10px;
+	padding-left: 20px;
+}
+
+.combo {
+	padding: 3px;
+}
+
+.welcomediv {
+	background-color: #bfffbf;	
+	padding: 10px;
+	margin-bottom: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	width: 410px;
+}
+
+.strongspan {
+	font-weight: bold;
+}
+
+.errordiv {
+	background-color: #ffbfbf;	
+	padding: 10px;
+	margin-bottom: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	width: 400px;
+}
+
+.infodiv {
+	background-color: #bfbfff;	
+	padding: 10px;
+	margin-bottom: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	width: 400px;
+}
+
+.successdiv {
+	background-color: #bfffbf;	
+	padding: 10px;
+	margin-bottom: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	width: 400px;
+}
+
+.gamelistdiv {
+	background-color: #bfffbf;	
+	padding: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	width: 550px;
+}
+
+.playerspan {
+	font-weight:bold;
+}
+
+.resultspan {
+	color:#0000ff;
+	margin-left: 10px;
+}
+
+.datespan {
+	font-style:italic;
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+.timespan {
+	font-style:italic;
+	font-size: 12px;
+}
+
+.analysisspan {	
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+.titlefielddiv {
+	padding: 10px;
+	font-size: 20px;
+}
+
+.footerfielddiv {
+	padding: 10px;
+	font-size: 15px;
+}
+
+.headerdiv {
+	background-color: #bfbfbf;	
+	padding-top: 3px;
+	padding-left: 6px;
+	padding-bottom: 3px;
+	padding-right: 3px;
+	margin-bottom: 10px;
+}
+
+.contentdiv {
+	margin-left: 10px;
+}
+
+.headerdiv a { color:#5f5f5f; text-decoration: none; padding-left: 5px; } 
+
+.devtd {
+	border-style: solid;
+	border-width: 1px;
+	padding: 2px;
+}
+
+.formdiv {
+	margin: 3px;
+	padding: 3px;
+	border-style: solid;
+	border-width: 1px;
+	border-radius: 10px;
+	width: 410px;
+	background-color: #dfdfdf;
+}
+
+.formhr {
+	padding: 1px;
+	margin: 5px;
+}
+
+.submitbutton {
+	font-size: 16px;	
+	padding: 5px;
+	margin-left: 140px;
+	margin-bottom: 10px;
+	width: 160px;
+}
+
+.fieldtitle {
+	vertical-align: middle;
+	font-size: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.fieldinput {
+	padding: 3px;	
+}
+
+.recaptchainput {
+	padding: 3px;
+}
+
+.recaptchatitle {
+	vertical-align: middle;
+	font-size: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.inputtext {
+	padding: 5px;
+	font-size: 25px;
+	width: 300px;
+}
+
+.inputpassword {
+	padding: 5px;
+	font-size: 25px;
+	width: 300px;
+}
+
+.inputcheckbox {
+	padding: 3px;
+}
+
+/**************************************
+Tabpane
+**************************************/
+
+/* Style the tab */
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+    background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+	overflow: scroll;
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: #afafaf;
+}
+
+/**************************************
+End Tabpane
+**************************************/
+
+.prestd {
+	border-style: solid;
+	border-width: 1px;
+	padding: 2px;
+	font-family: monospace;
+}
+
+.prescurrenttext {
+	width:450px;
+	font-size:10px;
+}
+
+.presurltext {
+	width:400px;
+	font-size:10px;
+}
+
+.booktd {	
+	padding: 4px;	
+}
+
+.booksan {
+	font-size: 30px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.bookannot {
+	font-size: 30px;
+	font-weight: bold;	
+}
+
+.bookannotcontrol {
+	font-size: 14px;
+	cursor: pointer;
+}

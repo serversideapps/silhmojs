@@ -1,0 +1,43 @@
+@(signUpForm: myform.MySignUpForm,docaptcha:Boolean,dosendmail:Boolean)(implicit c:play.api.Configuration,request: Request[AnyContent], messages: Messages)
+
+@main(Messages("sign.up.title")) {    
+
+	@titlefield(Messages("sign.up.account"))
+	
+	@helper.form(action = routes.SignUpController.submit()) {			
+
+		@helper.CSRF.formField            
+		
+		<div class="formdiv">
+		<table>
+		
+			@field("text","handle",Messages("handle"),default=signUpForm.d.handle,error=signUpForm.errors("handle"))
+			
+			<input type="hidden" id="firstName" name="firstName" value="Joe" required="true">
+			<input type="hidden" id="lastName" name="lastName" value="Doe" required="true">            
+			@if(dosendmail){
+				@field("text","email",Messages("email"),default=signUpForm.d.email,error=signUpForm.errors("email"))
+			}
+			@field("password","password",Messages("password"),error=signUpForm.errors("password"))
+			@if(!dosendmail){
+				@field("password","passwordagain",Messages("password.again"),error=signUpForm.errors("passwordagain"))
+			}
+			
+			@if(docaptcha){
+				@recaptchafield(error=signUpForm.errors("recaptcha"))
+			}
+						
+			@field("hr")		
+			
+			@field("submit",title=Messages("sign.up"))	
+		
+		</table>		
+		</div>
+		
+		<div class="footerfielddiv">
+			@Messages("already.a.member") <a href="@routes.SignInController.view">@Messages("sign.in.now")</a></p>
+		</div>
+		
+	}    
+	
+}

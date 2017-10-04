@@ -1,0 +1,29 @@
+@(user: models.User)(implicit request: RequestHeader, messages: Messages)
+
+@main(Messages("home.title"), Some(user)) {
+    
+	@titlefield(Messages("welcome.signed.in"))
+	
+	<div class="welcomediv">		
+	
+		<img src="@user.avatarURL.getOrElse(routes.Assets.versioned("images/silhouette.png"))" height="40px" />
+		   
+		<!--@Messages("first.name") : @user.firstName.getOrElse("None") <br>
+		@Messages("last.name") : @user.lastName.getOrElse("None") <br>
+		@Messages("full.name") : @user.fullName.getOrElse("None") <br>-->
+		
+		<hr class="formhr">
+		
+		<b>@user.handle.getOrElse("Anonymous")</b> -
+		@if(user.admin){
+			! admin ! -
+		}
+		@Messages("email") : <b>@user.email.getOrElse("None")</b>
+		
+		<hr class="formhr">
+		
+		@Messages("glicko.rating"): <b>@("%.0f".format(user.rating))</b> ( RD = <b>@("%.0f".format(user.rd))</b> )
+	
+	</div>
+	
+}

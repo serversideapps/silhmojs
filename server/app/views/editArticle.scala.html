@@ -1,0 +1,44 @@
+@(user:Option[models.User],id: Option[String], form: Form[models.Article], files: Option[List[(play.api.libs.json.JsString, reactivemongo.api.gridfs.ReadFile[reactivemongo.play.json.JSONSerializationPack.type, play.api.libs.json.JsString])]])(implicit request: Request[AnyContent], messages: Messages)
+
+@main("Welcome to ReactiveMongo Demo",user) {
+
+  <div>
+  <table><tr><td>
+  <div>
+  <h2>
+    @if(!id.isDefined) {
+      Add
+    } else {
+      Edit
+    } an article</h2>
+  @helper.form(action = (if(!id.isDefined) helper.CSRF(routes.Articles.create) else helper.CSRF(routes.Articles.edit(id.get))), 'class -> "form-horizontal") {
+    @helper.inputText(form("title"))
+    @helper.inputText(form("publisher"))
+    @helper.textarea(form("content"))
+    <div>
+      <input type="submit">
+    </div>
+  }
+  </div>
+  </td><td>
+  <div style="margin-left: 30px;">
+  <h2>Attachments</h2>
+  @if(id.isDefined) {
+    @if(files.isDefined) {
+    <ul>
+      @files.get.map { file =>
+      <li><a href="@routes.Articles.getAttachment(file._1.value)">@file._2.filename</a> - <a target="_blank" href="@routes.Articles.getAttachment(file._1.value)?inline=true">inline</a> - <a href="@helper.CSRF(routes.Articles.removeAttachment(file._1.value+"_"+id.get))">delete</a></li>
+      }
+    </ul>
+    }
+    @helper.form(action = helper.CSRF(routes.Articles.saveAttachment(id.get)), 'enctype -> "multipart/form-data") {
+      <input type="file" name="picture">
+      <div>
+        <input type="submit">
+      </div>
+    }
+  }
+  </div>
+  </td></tr></table>
+  
+}

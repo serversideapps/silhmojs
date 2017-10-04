@@ -1,0 +1,44 @@
+@(kind:String,id:String="",title:String="",default:String="",options:Map[String,String]=Map(),error:String="")(implicit messages: Messages)
+
+<tr>
+
+	<td class="fieldtitle">
+		@(if(kind!="submit") title else "")
+	</td>
+
+	<td class="fieldinput">
+		@if(kind=="text") {
+			<input class="inputtext" type="text" id="@id" name="@id" value="@default">
+		}
+		@if(kind=="password") {
+			<input class="inputpassword" type="password" id="@id" name="@id">
+		}
+		@if(kind=="checkbox") {
+			<input class="inputcheckbox" type="checkbox" id="@id" name="@id" value="true">
+		}
+		@if(kind=="hr") {
+			<hr class="formhr">
+		}
+		@if(kind=="submit") {	
+			<button class="submitbutton" id="submit" type="submit" value="submit">@title</button>
+		}
+		@if(kind=="combo") {
+			<select class="combo" id="@id" name="@id">				
+				@for((key, value) <- options){
+					<option value="@key" @(if(key==default) "selected" else "")> @value </option>
+				}
+			</select>
+		}
+	</td>
+
+</tr>
+
+<tr>
+
+	<td></td>
+
+	<td class="fieldcomment">
+		<span id="@(id+"comment")">@Messages(error)</span>
+	</td>
+
+</tr>

@@ -1,0 +1,25 @@
+@(form: myform.MyGetHandleForm, provider:String, token: java.util.UUID)(implicit request: RequestHeader, messages: Messages)
+
+@main(Messages("reset.password.title")) {
+    
+        @titlefield("Choose a handle")
+		
+        @helper.form(action = routes.SocialAuthController.submithandle(provider,token), 'autocomplete -> "off") {
+					
+            @helper.CSRF.formField
+            
+			<div class="formdiv">
+			<table>
+			
+				@field("text","handle","Handle",default=form.d.handle,error=form.errors("handle"))
+							
+				@field("hr")		
+				
+				@field("submit",title="Ok")	
+			
+			</table>		
+			</div>
+            
+        }
+    
+}

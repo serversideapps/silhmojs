@@ -1,0 +1,25 @@
+@(user: models.User,gamelist:List[shared.Game])(implicit request: RequestHeader, messages: Messages)
+
+@main(Messages("presentations.title"), Some(user)) {
+    
+	@for((g,i)<-gamelist.view.zipWithIndex){
+		<div class="gamelistdiv">		
+			<div style="font-size:10px;">
+				@(i+1) . <a href="/analysis/@g.presentation.id">@g.presentation.id</a>
+			</div>		
+			<div style="padding: 3px;">
+				<span>@g.presentation.title</span>				
+				@if(g.presentation.canedit=="no"){
+					<span style="float:right; color: #7f0000;">@Messages("presentation.hybernated")</span>		
+				} else {
+					@if(g.presentation.candelete=="no"){
+						<span style="float:right; color: #7f7f00;">@Messages("presentation.archived")</span>		
+					}else{
+						<span style="float:right;"><a href="/presentations/del/@g.presentation.id">@Messages("delete.presentation")</a></span>		
+					}
+				}
+			</div>
+		</div>		
+	}
+	
+}

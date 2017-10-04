@@ -1,0 +1,37 @@
+@(user:Option[models.User],userlist:List[models.User])(implicit request: RequestHeader, messages: Messages)
+
+@main(Messages("dev.title"),user) {
+    
+	<table>
+	
+		<tr>
+		
+			<td class="devtd"><b>fullName</b></td>
+			<td class="devtd">userID</td>
+			<td class="devtd">handle</td>
+			<td class="devtd">password</td>
+			<td class="devtd">loginInfo</td>	
+			<td class="devtd">activated</td>
+			<td class="devtd">admin</td>
+			
+		</tr>
+	
+    @for(user <- userlist) {
+	
+		<tr>
+		
+			<td class="devtd"><b>@user.fullName</b></td>
+			<td class="devtd">@user.userID</td>
+			<td class="devtd">@user.handle</td>
+			<td class="devtd">@user.regpass</td>
+			<td class="devtd">@user.loginInfo</td>	
+			<td class="devtd"><a href="@routes.ApplicationController.devflip(user.userID.toString())">@user.activated</a></td>
+			<td class="devtd">@user.admin</td>	
+			
+		</tr>
+		
+	}
+	
+	</table>
+    
+}

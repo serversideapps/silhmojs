@@ -1,0 +1,58 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Socket
+GET         /ws                              controllers.SocketController.socket
+GET         /ws/ping                         controllers.SocketController.ping
+
+# Home page
+GET         /                                controllers.ApplicationController.index
+GET         /signOut                         controllers.ApplicationController.signOut
+GET         /authenticate/:provider          controllers.SocialAuthController.authenticate(provider)
+POST        /submithandle/:provider/:token   controllers.SocialAuthController.submithandle(provider,token:java.util.UUID)
+
+GET         /dev                             controllers.ApplicationController.dev
+GET         /chess                           controllers.ApplicationController.chess
+GET         /analysis/:gameID                controllers.ApplicationController.analysis(gameID)
+GET         /dev/flip/:userID                controllers.ApplicationController.devflip(userID)
+GET         /games                           controllers.ApplicationController.games
+GET         /presentations                   controllers.ApplicationController.presentations
+GET         /presentations/del/:presid       controllers.ApplicationController.delpresentation(presid)
+
+GET         /settings                        controllers.ApplicationController.settings()
+POST        /settings                        controllers.ApplicationController.submitsettings
+
+GET         /signUp                          controllers.SignUpController.view
+POST        /signUp                          controllers.SignUpController.submit
+
+GET         /signIn                          controllers.SignInController.view
+POST        /signIn                          controllers.SignInController.submit
+
+GET         /password/forgot                 controllers.ForgotPasswordController.view
+POST        /password/forgot                 controllers.ForgotPasswordController.submit
+GET         /password/reset/:token           controllers.ResetPasswordController.view(token: java.util.UUID)
+POST        /password/reset/:token           controllers.ResetPasswordController.submit(token: java.util.UUID)
+GET         /password/change                 controllers.ChangePasswordController.view
+POST        /password/change                 controllers.ChangePasswordController.submit
+
+GET     	/admin							 controllers.AuthorizeAdminController.view
+POST     	/admin							 controllers.AuthorizeAdminController.submit
+
+GET         /account/email/:email            controllers.ActivateAccountController.send(email: String)
+GET         /account/activate/:token         controllers.ActivateAccountController.activate(token: java.util.UUID)
+
+# Map static resources from the /public folder to the /assets URL path
+GET         /assets/*file           controllers.Assets.versioned(path="/public", file)
+
+GET     /articles/index             controllers.Articles.index
+GET     /articles/new               controllers.Articles.showCreationForm
+POST    /articles/new               controllers.Articles.create
+GET     /articles/:id               controllers.Articles.showEditForm(id)
+POST    /articles/:id               controllers.Articles.edit(id)
+#DELETE  /articles/:id               controllers.Articles.delete(id)
+GET     /articles/delete/:id        controllers.Articles.delete(id)
+POST    /articles/:id/attachments   controllers.Articles.saveAttachment(id)
+GET     /attachments/:id            controllers.Articles.getAttachment(id)
+#DELETE  /attachments/*ids           controllers.Articles.removeAttachment(ids)
+GET     /attachments/delete/:id     controllers.Articles.removeAttachment(id)

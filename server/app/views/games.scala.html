@@ -1,0 +1,27 @@
+@(user: models.User,gamelist:List[shared.Game])(implicit request: RequestHeader, messages: Messages)
+
+@main(Messages("games.title"), Some(user)) {
+    
+	@for((g,i)<-gamelist.view.zipWithIndex){
+	<div class="gamelistdiv">
+		@(i+1) . 
+		<span class="playerspan">@g.White</span>
+		<span class="playerspan"> - @g.Black</span>
+		<span class="playerspan">@(if(g.Yellow!="?") (" - "+g.Yellow) else "")</span>
+		<span class="playerspan">@(if(g.Red!="?") (" - "+g.Red) else "")</span>
+		<span class="resultspan">@g.Result</span>
+		<span class="datespan">@g.Date</span>
+		<span class="timespan">@g.Time</span>
+		@if(g.isanalyzed){
+			<span class="analysisspan"><a href="@routes.ApplicationController.analysis(g.usergameid)">@Messages("ccfg.gamesanalysis")</a></span>
+		}
+	</div>
+		<div>
+			
+		<textarea rows="16" cols="80">			
+@g.pgn
+		</textarea>
+		</div>
+	}
+	
+}

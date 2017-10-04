@@ -1,0 +1,88 @@
+@(title: String, user: Option[models.User] = None)(content: Html)(implicit request: RequestHeader, messages: Messages)
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">		
+	
+	<title>@title</title>
+	
+	<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/reset.css")">
+	<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/main.css")">
+		
+	<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/piece/alpha.css")">
+	<link rel="stylesheet" href="@routes.Assets.versioned("stylesheets/piece/merida.css")">
+	
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+</head>
+	
+<body style="position: relative;">
+
+	<script src="/assets/javascripts/analytics.js"></script>
+
+	<div class="headerdiv">                   
+	
+	<a href="@routes.ApplicationController.chess">@Messages("menu.play")</a>	
+	<a href="@routes.ApplicationController.analysis("none")">@Messages("menu.analysis")</a>
+
+	@user.map { u =>
+		<a href="@routes.ApplicationController.games">@Messages("menu.games")</a>	
+		<a href="@routes.ApplicationController.presentations">@Messages("menu.presentations")</a>	
+	}
+
+	<a href="@routes.ApplicationController.index">@Messages("menu.home")</a>
+	<a href="https://github.com/serversideapps/silhmojs">GitHub</a>
+						
+	@user.map { u =>
+		<a href="@routes.ApplicationController.index">@u.handle.getOrElse("Anonymous")</a>
+		@if(u.loginInfo.providerID == com.mohiva.play.silhouette.impl.providers.CredentialsProvider.ID) {			
+			@if(u.admin) {
+				<a href="@routes.ApplicationController.dev">Dev</a>
+				<a href="@routes.Articles.index">@Messages("menu.articles")</a>
+			}
+			<a href="@routes.ChangePasswordController.view">@Messages("menu.changepass")</a>
+		}
+		<a href="@routes.ApplicationController.settings">@Messages("menu.settings")</a>
+		<a href="@routes.ApplicationController.signOut">@Messages("menu.signout")</a>
+	}.getOrElse {							
+		<a href="@routes.SignInController.view">@Messages("menu.signin")</a>
+		<a href="@routes.SignUpController.view">@Messages("menu.signup")</a>
+	}
+	
+	</div>
+	
+	<div class="contentdiv">	
+
+	@request.flash.get("error").map { msg =>
+		<div class="errordiv">
+			<span class="strongspan">@Messages("error")</span> @msg
+		</div>
+	}
+	@request.flash.get("info").map { msg =>
+		<div class="infodiv">
+			<span class="strongspan">@Messages("info")</span> @msg
+		</div>
+	}
+	@request.flash.get("success").map { msg =>
+		<div class="successdiv">
+			<span class="strongspan">@Messages("success")</span> @msg
+		</div>
+	}
+	
+		@content
+	</div>
+
+</body>
+
+</html>

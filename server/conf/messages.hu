@@ -1,0 +1,215 @@
+presentation.engine = Sakkmotor
+presentation.hybernate = Hibernálás
+presentation.nothybernated = Nincs hibernálva
+presentation.hybernated = Hibernálva
+presentation.changehybernated = Megváltoztat
+presentation.archive = Archiválás
+presentation.notarchived = Nincs archiválva
+presentation.archived = Archiválva
+presentation.changearchived = Megváltoztat
+presentation.access.denied = Hozzáférés megtagadva!
+presentation.deleted = Prezentáció törölve.
+presentation.doesnotexist = Prezentáció nem létezik!
+
+ccfg.change = Megváltoztat
+ccfg.essay = Esszé
+ccfg.saveessay = Esszé mentése
+ccfg.savemovenote = Ment
+ccfg.editmovenote = Szerkeszt
+ccfg.create = Létrehoz
+ccfg.nodelink = Könyvjelző link
+ccfg.nodeurl = Könyvjelző url
+ccfg.version = Verzió
+ccfg.white = Világos
+ccfg.black = Sötét
+ccfg.yellow = Sárga
+ccfg.red = Piros
+ccfg.variant = Változat
+ccfg.timecontrol = Gondolkodási idő
+ccfg.gamesanalysis = Játszma elemzése
+ccfg.whiteresigned = Világos feladta
+ccfg.blackresigned = Sötét feladta
+ccfg.whiteflagged = Világos időtúllépés
+ccfg.blackflagged = Sötét időtúllépés
+ccfg.whitemated = Világos mattolva
+ccfg.blackmated = Sötét mattolva
+ccfg.open = Nyitva
+ccfg.inprogress = Folyamatban
+ccfg.terminated = Befejeződött
+ccfg.result = Eredmény
+ccfg.created = Létrehozva
+ccfg.status = Státus
+ccfg.refresh = Frissítés
+ccfg.load = Betöltés
+ccfg.loadingboard = Tábla töltése ...
+ccfg.importpgn = PGN importálása : 
+ccfg.savenotes = Jegyzetek mentése
+ccfg.upload = Feltölt
+ccfg.title = Cím
+ccfg.owner = Tulajdonos
+ccfg.id = Azonosító
+ccfg.gennew = Új azonosító
+ccfg.resign = Felad
+ccfg.stand = Feláll
+ccfg.play = Játék
+ccfg.playai = Játék AI
+ccfg.flip = Fordít
+ccfg.yes = Igen
+ccfg.no = Nem
+ccfg.current = Jelenlegi
+ccfg.book = Könyv
+ccfg.notes = Jegyzetek
+ccfg.presentation = Prezentáció
+ccfg.connecting = Csatlakozás ...
+ccfg.createtable = Tábla nyitás
+ccfg.creatingtable = Tábla nyílik
+
+menu.presentations = Prezentációk
+menu.play=Játék
+menu.games=Játszmák
+menu.analysis=Elemzés
+menu.home=Kezdőlap
+menu.change.password=Jelszó megváltoztatása
+menu.settings=Beállítások
+menu.signout=Kilépés
+menu.signin=Bejelentkezés
+menu.signup=Regisztráció
+menu.changepass=Jelszó megváltoztatása
+menu.articles=Cikkek
+
+delete.presentation = Törlés
+
+presentation.deftitle=Chessapp Prezentáció
+analysis.deftitle=Chessapp - Elemzés
+chessappgame.title=Chessapp - Játszma
+
+analysis.title = Chessapp - Elemzés
+required = Szükséges.
+passwords.dont.match = A jelszavak nem egyeznek.
+illegal.characters.in.handle = Illegális karakterek a felhasználónévben.
+handle.required = Felhasználónáv szükséges.
+password.required = Jelszó szükséges.
+does.not.look.like.an.email = Nem tűnik érvényes email címnek.
+games.title = Chessapp - Játszmák
+presentations.title = Chessapp - Prezentációk
+
+captcha=
+constraint.required=
+
+dev.title=Fejlesztés
+chess.title=Chessapp - Játék
+articles.title=Chessapp - Cikkek
+settings=Chessapp - Beállítások
+
+error.email = Érvényes email szükséges
+error.required = Ezt a mezőt ki kell tölteni
+invalid.credentials = Érvénytelen bejelentkezés!
+access.denied = Hozzáférés megtagadva!
+could.not.authenticate = Közösségi oldalre nem sikerült bejelentkezni! Próbálja újra!
+
+home.title = Chessapp - Kezdőlap
+sign.up.title = Chessapp - Regisztráció
+sign.in.title = Chessapp - Bejelentkezés
+forgot.password.title = Chessapp - Elfelejtett jelszó
+reset.password.title = Chessapp - Jelszó visszaállítása
+change.password.title = Chessapp - Jelszó megváltoztatása
+activate.account.title = Chessapp - Előfizetés aktiválása
+
+toggle.navigation = Navigáció változtatása
+welcome.signed.in = Üdvözöljük! Be van jelentkezve!
+
+sign.up.account = Regisztráljon
+sign.in.credentials = Jelentkezzen be
+
+error = Hiba!
+info = Információ!
+success = Sikeres!
+home = Kezdőlap
+handle = Felhansználónév
+first.name = Keresztnév
+last.name = Vezetéknév
+full.name = Teljes név
+email = Email
+password = Jelszó
+password.again = Jelszó újra
+send = Küld
+change = Megváltoztat
+reset = Visszaállítás
+sign.up = Regisztráció
+sign.in = Bejelentkezés
+sign.out = Kijelentkezés
+sign.in.now = Bejelentkezés most
+sign.up.now = Regisztráció most
+already.a.member = Már tag?
+not.a.member = Nem tag?
+forgot.your.password = Elfelejtette a jelszavát?
+forgot.password = Elfelejtett jelszó
+reset.password = Jelszó visszaállítás
+change.password = Jelszó megváltoztatása
+activate.account = Aktiválás
+current.password = Jelenlegi jelszó
+new.password = Új jelszó
+
+remember.me = Emlékezz rám
+or.use.social = Használja meglevő előfizetését az alábbi szolgálatatásokra a bejelentkezéshez:
+forgot.password.info = Adja meg email címét és mi elküldjük az utasításokat a jelszó visszaállítására.
+strong.password.info = Az erős jelszavak betűket, számokat és központozást is tartalmaznak.
+current.password.invalid = A megadott jelszó érvénytelen. Adja meg a helyes jelszót.
+activate.account.text1 = Még nem jelentkezhet be. Küldtünk egy aktivációs emailt.
+activate.account.text2 = Kövesse az ebben az emailben levő utasításokat.
+activate.account.text3 = Kattintson <a href="{0}">ide</a> az aktivációs email újraküldéséhez.
+
+sign.up.email.sent = Már majdnem kész. Küldtünk egy aktivációs emailt ide: {0}. Kövesse az ebben található utasításokat.
+activation.email.sent = Küldtünk egy új aktivációs emailt ide: {0}. Ennek megérkezése néhány percet igénybe vehet.
+reset.email.sent = Küldtünk egy email a jelszó visszaállításához amennyiben szerepel nyilvántartásunkban.
+
+invalid.activation.link = A hivatkozás már nem érvényes. Kérjen új aktivációs emailt.
+invalid.reset.link = A hivatkozás már nem érvényes. Kérjen újat.
+
+password.reset = Visszaállította a jelszavát, most már bejelentkezhet.
+account.activated = Előfizetése aktiválva van, kérjük jelentkezzen be.
+password.changed = Jelszava meg lett változtatva.
+
+google = Google
+facebook = Facebook
+twitter = Twitter
+vk = VK
+xing = Xing
+yahoo = Yahoo
+
+##########
+# Emails
+##########
+
+email.from = Silhouette <noreply@mohiva.com>
+
+# Sign Up
+email.sign.up.subject = Üdvözöljük
+email.sign.up.hello = Üdvözöljük {0},
+email.sign.up.html.text = Kövesse <a href="{0}">ezt a hivatkozást</a> előfizetése megerősítéséhez és aktiválásához.
+email.sign.up.txt.text = Kövesse azt a hivatkozást előfizetése megerősítéséhez és aktiválásához: {0}
+
+# Already Signed Up
+email.already.signed.up.subject = Üdvözöljük
+email.already.signed.up.hello = Üdvözöljük {0},
+email.already.signed.up.html.text = Már van regisztrált előfizetése. Kövesse <a href="{0}">ezt a hivatkozást</a> a bejelentkezéshe.
+email.already.signed.up.txt.text = Már van regisztrált előfizetése. Kövesse ezt a hivatkozást a bejelentkezéshez: {0}
+
+# Reset Password
+email.reset.password.subject = Jelszó visszaállítása
+email.reset.password.hello = Üdvözöljük {0},
+email.reset.password.html.text = Kövesse <a href="{0}">ezt a hivatkozást</a> a jelszava visszaállításához.
+email.reset.password.txt.text = Kövesse ezt a hivatkozást a jelszava visszaállításához: {0}
+
+# Activate Account
+email.activate.account.subject = Előfizetés aktiválása
+email.activate.account.hello = Üdvözöljük {0},
+email.activate.account.html.text = Kövesse <a href="{0}">ezt a hivatkozást</a> előfizetése megerősítéséhez és aktiválásához.
+email.activate.account.txt.text = Kövesse azt a hivatkozást előfizetése megerősítéséhez és aktiválásához: {0}
+
+piece.type = Sakk figura
+note = Megjegyzés
+submit.changes = Változások mentése
+there.were.errors = Voltak hibák!
+changes.saved = Változtatásait elmentettük.
+glicko.rating = Glicko értékszám

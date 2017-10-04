@@ -1,0 +1,42 @@
+@(user:Option[models.User],setting:Option[shared.Setting]=None,viewserialized:String="",chessconfig:String="",alttitle:Option[String]=None)(implicit request: RequestHeader, messages: Messages)
+
+@main(alttitle.getOrElse(Messages("chess.title")),user) {
+
+	<div id="chessconfig" style="visibility: hidden; width: 0px; height: 0px;">@chessconfig</div>
+    
+	<div id="root" admin="@(if(user.isEmpty) "false" else user.get.admin)" user="@(if(user.isEmpty) "" else user.get.handle.get)" viewid="chess" viewserialized="@viewserialized" piecetype="@(if(setting.isEmpty) "" else setting.get.piecetype)"></div>
+	
+	<div id="info" style="position: relative;">
+	@Messages("ccfg.loadingboard")
+	</div>
+	
+	<audio id="movesound">
+		<source src="/assets/sounds/movesound.ogg">
+		<source src="/assets/sounds/movesound.mp3">
+	</audio>
+	<audio id="victorysound">
+		<source src="/assets/sounds/victorysound.ogg">
+		<source src="/assets/sounds/victorysound.mp3">
+	</audio>
+	<audio id="defeatsound">
+		<source src="/assets/sounds/defeatsound.ogg">
+		<source src="/assets/sounds/defeatsound.mp3">
+	</audio>
+	<audio id="drawsound">
+		<source src="/assets/sounds/drawsound.ogg">
+		<source src="/assets/sounds/drawsound.mp3">
+	</audio>		
+	<audio id="newchallengesound">
+		<source src="/assets/sounds/newchallengesound.ogg">
+		<source src="/assets/sounds/newchallengesound.mp3">
+	</audio>	
+	<audio id="newpmsound">
+		<source src="/assets/sounds/newpmsound.ogg">
+		<source src="/assets/sounds/newpmsound.mp3">
+	</audio>	
+	
+	@scalajs.html.scripts("client", routes.Assets.versioned(_).toString, name => getClass.getResource(s"/public/$name") != null)
+	<!--<script src="/assets/javascripts/client-jsdeps.min.js"></script>
+	<script src="/assets/javascripts/client-opt.js"></script>-->
+	    
+}

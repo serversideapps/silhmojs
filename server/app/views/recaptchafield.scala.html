@@ -1,0 +1,24 @@
+@(id:String="recaptcha",error:String="")(implicit c:play.api.Configuration)
+
+<tr>
+
+	<td class="recaptchatitle">
+		Recaptcha
+	</td>
+
+	<td class="recaptchainput">
+		<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+		<div class="g-recaptcha" data-sitekey="@c.getString("recaptcha.publicKey").get"></div>
+	</td>
+
+</tr>
+
+<tr>
+
+	<td></td>
+
+	<td class="fieldcomment">
+		<span id="@(id+"comment")">@error</span>
+	</td>
+
+</tr>

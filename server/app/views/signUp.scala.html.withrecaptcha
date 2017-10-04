@@ -1,0 +1,34 @@
+@import com.nappin.play.recaptcha.WidgetHelper
+
+@(signUpForm: Form[forms.SignUpForm.Data], docaptcha: Boolean)(implicit request: Request[AnyContent], messages: Messages, widgetHelper: WidgetHelper)
+
+@main(Messages("sign.up.title")) {    
+
+	@Messages("sign.up.account")
+	
+	<hr>
+	
+	@helper.form(action = routes.SignUpController.submit()) {			
+
+		@helper.CSRF.formField            
+		
+		<input type="text" id="handle" name="handle">
+		<input type="hidden" id="firstName" name="firstName" value="Joe" required="true">
+		<input type="hidden" id="lastName" name="lastName" value="Doe" required="true">            
+		<input type="text" id="email" name="email">
+					
+		@if(docaptcha) {
+			<div>
+				@recaptcha.recaptchaField(form = signUpForm, fieldName = "captcha", tabindex = Some(2))
+			</div>
+		}
+					
+		<button id="submit" type="submit" value="submit">@Messages("sign.up")</button>
+		
+		<hr>
+		
+		<p>@Messages("already.a.member") <a href="@routes.SignInController.view">@Messages("sign.in.now")</a></p>
+		
+	}    
+	
+}
