@@ -23,12 +23,14 @@ case class ThinkingOutput(
     var score: Int = 0,
     var depth: Int = 0
 ) {
-  def update(buffer: String) {
+  def update(buffer: String, b: board) {
     if (buffer.contains(" pv ")) {
       val parts = buffer.split(" pv ")
       if (parts.length > 1) {
         val algebparts = parts(1).split(" ")
         bestmovealgeb = algebparts(0)
+        // convert to chess960 algeb
+        bestmovealgeb = b.to_chess960_algeb(bestmovealgeb)
       }
     }
     if (buffer.contains(" score cp ")) {
@@ -813,6 +815,10 @@ class WebBoard(
   }
 
   def search(setsearchmoves: String = "") {
+    if (enginerunning) {
+      store
+    }
+
     stopanalyzing
 
     var searchmoves = setsearchmoves
@@ -828,6 +834,14 @@ class WebBoard(
       searchmoves = falgebs.mkString(" ")
 
     }
+
+    if (searchmoves == "") return
+
+    // correct chess960 algebs to normal algebs
+    val searchalgebs = searchmoves.split(" ")
+    val normalalgebs = searchalgebs.map(g.b.to_true_algeb)
+
+    searchmoves = normalalgebs.mkString(" ")
 
     val fen = g.report_fen
     thinkingoutput = ThinkingOutput()
@@ -1325,7 +1339,7 @@ class WebBoard(
       val nid = "movenote" + san
 
       val movecommentcontent = if (bm.open) if (preseditable) s"""
-          |<textarea id="$nid" rows="3" cols="30">${bm.comment}</textarea>
+          |<textarea id="$nid" rows="2" cols="30">${bm.comment}</textarea>
         """.stripMargin
       else ""
       else if (bm.comment != "") s"""          
@@ -1344,10 +1358,12 @@ class WebBoard(
         """.stripMargin
       } else ""
 
+      val nonbsan = san.replaceAll("\\-", "&#8209;")
+
       s"""
         |<tr>
         |<$td><span class="booksan"><font color="$col">$moveno</font></span></td>
-        |<$td><span class="booksan"><font color="$col" id="$id">$san</font></span></td>        
+        |<$td><span class="booksan"><font color="$col" id="$id">$nonbsan</font></span></td>        
         |<$td><span class="bookannot"><font color="$col">${if (annot == "-") "" else annot}</font></span></td>
         |<$td><span id="$emid" style="cursor:pointer;font-size:23px;font-weight:bold;"><font color="$col">${if (bm.hasscore) bm.scoreformatted else "eval"}</font></span></td>
         |<$td><span><font color="$col" style="font-size:12px;color:#00007f">${if (bm.hasscore) bm.depth else ""}</font></span></td>
@@ -1834,7 +1850,7 @@ class WebBoard(
       case "thinkingoutput" => {
         val buffernormalized = x.buffer.replaceAll("\\r", "")
         log(buffernormalized)
-        thinkingoutput.update(buffernormalized)
+        thinkingoutput.update(buffernormalized, g.b)
         drawenginearrow(thinkingoutput)
       }
     }

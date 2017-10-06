@@ -61,7 +61,7 @@ lazy val server = (project in file("server")).settings(
     "ReverseRoutes.scala" ||
     "JavaScriptReverseRoutes.scala" ||
     "RoutesPrefix.scala")
-).enablePlugins(PlayScala/*, LauncherJarPlugin*/, JavaAppPackaging).
+).enablePlugins(PlayScala, LauncherJarPlugin, JavaAppPackaging).
   dependsOn(sharedJvm)
 
 ////////////////////////////////////////////////////////////////////////////////
