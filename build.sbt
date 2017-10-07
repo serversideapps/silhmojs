@@ -116,5 +116,6 @@ addCommandAlias("r","run -Dhttp.port=9001")
 addCommandAlias("u",";fullOptJS;project update")
 addCommandAlias("y",";fullOptJS;project sync")
 addCommandAlias("s","project server")
+addCommandAlias("f",";fullOptJS;dist")
 
 ////////////////////////////////////////////////////////////////////////////////

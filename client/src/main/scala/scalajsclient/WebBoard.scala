@@ -178,6 +178,8 @@ class WebBoard(
 
   ///////////////////////////////////////////////////////////////////////////
 
+  var enginestartretries = 3
+  var enginestarted = false
   var enginerunning = false
   var thinkingoutput = ThinkingOutput()
   var availableengines = List[String]()
@@ -1846,6 +1848,8 @@ class WebBoard(
         availableengines = x.available
         drawg
         startengine
+        log("Engine started ok.")
+        enginestarted = true
       }
       case "thinkingoutput" => {
         val buffernormalized = x.buffer.replaceAll("\\r", "")
@@ -1857,11 +1861,26 @@ class WebBoard(
   }
 
   def createenginesocket {
+    if (enginestarted) return
+
     enginesocket = EngineSocketActorJS(this, sendavailablecallback)
+
+    setTimeout(10000) {
+      if ((!enginestarted) && (enginestartretries > 0)) {
+        enginestartretries -= 1
+        log("Engine startup failed. Retrying ( remaining retries : " + enginestartretries + " ) .")
+        createenginesocket
+      }
+    }
+  }
+
+  def initenginesocket {
+    log("Starting up default engine.")
+    createenginesocket
   }
 
   def loadpresentation {
-    createenginesocket
+    setTimeout(5000) { initenginesocket }
 
     selecttab("log")
 
