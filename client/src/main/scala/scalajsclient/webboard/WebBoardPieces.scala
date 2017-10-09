@@ -569,7 +569,9 @@ object WebBoardPieces {
 
     "store" -> "",
 
-    "search" -> ""
+    "search" -> "",
+
+    "restart" -> ""
 
   )
 

@@ -136,6 +136,7 @@ object WebBoardGlobals {
   val ACONTROL_BCOL_DELETE = "#7f0000"
   val ACONTROL_BCOL_STORE = "#7f7f00"
   val ACONTROL_BCOL_SEARCH = "#007f7f"
+  val ACONTROL_BCOL_RESTART = "#7f7f7f"
 
   def ACONTROLS = List(
     Acontrol("tobegin", "<<", ACONTROL_BCOL_TERMINAL),
@@ -147,7 +148,8 @@ object WebBoardGlobals {
     Acontrol("stop", "x", ACONTROL_BCOL_DELETE),
     Acontrol("make", "->", ACONTROL_BCOL_TERMINAL),
     Acontrol("store", "o", ACONTROL_BCOL_STORE),
-    Acontrol("search", "s", ACONTROL_BCOL_SEARCH)
+    Acontrol("search", "s", ACONTROL_BCOL_SEARCH),
+    Acontrol("restart", "r", ACONTROL_BCOL_RESTART)
   )
 
   def ACONTROL_BORDER = PLAYER_MARGIN / 2.0

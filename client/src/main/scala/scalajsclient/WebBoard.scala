@@ -864,6 +864,7 @@ class WebBoard(
       case "make" => candd(() => make)
       case "store" => candd(() => store, EditAction)
       case "search" => candd(() => search())
+      case "restart" => candd(() => restart())
       case _ => println("This was unexpected.")
     }
     val dummy = board
@@ -1718,6 +1719,10 @@ class WebBoard(
     enginesocket.sendMsg(EngineMessage(action = "start", name = presentation.enginename))
   }
 
+  def restart() {
+    startengine
+  }
+
   def stopanalyzing {
     enginesocket.sendMsg(EngineMessage(action = "issue", command = "stop"))
     enginerunning = false
@@ -1880,7 +1885,7 @@ class WebBoard(
   }
 
   def loadpresentation {
-    setTimeout(5000) { initenginesocket }
+    setTimeout(1000) { initenginesocket }
 
     selecttab("log")
 

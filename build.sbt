@@ -9,6 +9,10 @@ lazy val scalaV = "2.11.8"
 
 ////////////////////////////////////////////////////////////////////////////////
 
+lazy val copyoptjs = taskKey[Unit]("Copies client's opt.js")
+
+////////////////////////////////////////////////////////////////////////////////
+
 lazy val update = (project in file("update")).settings(
   scalaVersion := scalaV,
 
@@ -30,6 +34,8 @@ lazy val server = (project in file("server")).settings(
 
   resolvers := Resolver.jcenterRepo +: resolvers.value,
   resolvers := ("Atlassian Releases" at "https://maven.atlassian.com/public/") +: resolvers.value,
+  
+  copyoptjs := {try {sbt.IO.copyFile(new java.io.File("./client/target/scala-2.11/client-opt.js"),new java.io.File("../chessapp/public/javascripts/client-opt.js"));println("copyoptjs ok");} catch {case e:Throwable=>println("copyoptjs failed");}},
 
   libraryDependencies ++= serverDeps,
 
@@ -116,6 +122,6 @@ addCommandAlias("r","run -Dhttp.port=9001")
 addCommandAlias("u",";fullOptJS;project update")
 addCommandAlias("y",";fullOptJS;project sync")
 addCommandAlias("s","project server")
-addCommandAlias("f",";fullOptJS;dist")
+addCommandAlias("f",";fullOptJS;dist;copyoptjs")
 
 ////////////////////////////////////////////////////////////////////////////////
