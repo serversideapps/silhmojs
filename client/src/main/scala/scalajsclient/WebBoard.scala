@@ -1706,7 +1706,7 @@ class WebBoard(
 
   def selectengine(name: String) {
     presentation.enginename = name
-    startengine
+    startengine()
   }
 
   def presselectcallback(sid: String, value: String) {
@@ -1715,12 +1715,13 @@ class WebBoard(
     }
   }
 
-  def startengine {
+  def startengine() {
     enginesocket.sendMsg(EngineMessage(action = "start", name = presentation.enginename))
   }
 
   def restart() {
-    startengine
+    stopanalyzing
+    enginesocket = EngineSocketActorJS(this, startengine)
   }
 
   def stopanalyzing {
@@ -1852,7 +1853,7 @@ class WebBoard(
       case "available" => {
         availableengines = x.available
         drawg
-        startengine
+        startengine()
         log("Engine started ok.")
         enginestarted = true
       }
