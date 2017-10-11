@@ -243,6 +243,7 @@ class game(set_variant: String = "Standard") {
   }
 
   def reset {
+    pgn_headers = Map[String, String]()
     b.reset
     set_from_fen(b.report_fen)
   }
@@ -758,11 +759,14 @@ class game(set_variant: String = "Standard") {
 
       variant = pgn_variant
       b = new board(pgn_variant)
+      b.reset
     }
 
-    if (pgn_headers.contains("FEN")) {
-      set_from_fen(pgn_headers("FEN"), clear_headers = false)
-    }
+    var fen = b.report_fen
+
+    if (pgn_headers.contains("FEN")) fen = pgn_headers("FEN") else pgn_headers += ("FEN" -> fen)
+
+    set_from_fen(fen, clear_headers = false)
 
     val White = get_header("White")
     val Black = get_header("Black")
